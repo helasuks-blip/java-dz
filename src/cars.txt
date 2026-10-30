@@ -1,0 +1,7 @@
+Sedan;Toyota Camry;20000;8.5;210
+SUV;Jeep Grand Cherokee;35000;12.0;180
+Sedan;Kia Rio;15000;6.5;190
+BadType;Unknown;10000;5.0;200
+Sedan;Ford Focus;18000;abc;200
+SUV;Land Rover;50000;15.0;220
+Sedan;Bad Price;-5000;7.0;200

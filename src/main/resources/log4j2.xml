@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="LOG_DIR">logs</Property>
+        <Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout disableAnsi="false">
+                <Pattern>
+                    %d{HH:mm:ss} [%t] %highlight{%-5level}{FATAL=red blink, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=blue} %logger{36} - %msg%n
+                </Pattern>
+            </PatternLayout>
+        </Console>
+
+        <Console name="Console2" target="SYSTEM_OUT">
+            <PatternLayout disableAnsi="false">
+                <Pattern>
+                    %d{HH:mm:ss} [%t] %style{%-5level}{FATAL=red blink, ERROR=red bold, WARN=yellow bold, INFO=green, DEBUG=cyan, TRACE=blue} %logger{36} - %msg%n
+                </Pattern>
+            </PatternLayout>
+        </Console>
+
+        <RollingFile name="File1"
+                     fileName="${LOG_DIR}/app1.log"
+                     filePattern="${LOG_DIR}/archive/app1-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+        <RollingFile name="File2"
+                     fileName="${LOG_DIR}/app2.log"
+                     filePattern="${LOG_DIR}/archive/app2-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+        <RollingFile name="File3"
+                     fileName="${LOG_DIR}/app3.log"
+                     filePattern="${LOG_DIR}/archive/app3-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File1"/>
+            <AppenderRef ref="File2"/>
+            <AppenderRef ref="File3"/>
+        </Root>
+    </Loggers>
+</Configuration>
