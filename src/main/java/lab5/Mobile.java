@@ -5,8 +5,6 @@ import java.util.List;
 
 public class Mobile {
 
-    // ===== ВНУТРЕННИЙ КЛАСС =====
-    // Обрати внимание: НЕТ слова static. Это non-static inner class.
     public class Model {
         private String brand;
         private String name;
@@ -37,7 +35,7 @@ public class Mobile {
                     brand, name, year, os, ramGb, screenInches);
         }
     }
-    // ===== КОНЕЦ ВНУТРЕННЕГО КЛАССА =====
+
 
     private List<Model> models = new ArrayList<>();
 
